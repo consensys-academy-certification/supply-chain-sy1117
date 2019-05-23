@@ -1,7 +1,6 @@
 # ===== DO NOT MODIFY THIS FILE =====
 
 language: node_js
-node_js:
   - "10"
 
 before_script:
@@ -9,6 +8,9 @@ before_script:
   - npm install -g truffle@5.0.0
 
 script:
+  - git clone https://gist.github.com/2b07533c64d6224c5b32c2e311c321a1.git
+  - rm ./test/SupplyChain.test.js
+  - mv ./2b07533c64d6224c5b32c2e311c321a1/certification-SupplyChain.test.js ./test/SupplyChain.test.js
   - ganache-cli &
   - sleep 5
   - truffle test
